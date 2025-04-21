@@ -36,4 +36,12 @@ class Utils {
       DeviceOrientation.portraitDown,
     ]);
   }
+
+  /// Converts a hex color string like '#FFD8C0' or 'FFD8C0' to [Color]
+  static Color fromHex(String hexString) {
+    final buffer = StringBuffer();
+    if (hexString.length == 6 || hexString.length == 7) buffer.write('FF');
+    buffer.write(hexString.replaceFirst('#', ''));
+    return Color(int.parse(buffer.toString(), radix: 16));
+  }
 }

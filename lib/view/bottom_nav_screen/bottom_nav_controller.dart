@@ -23,8 +23,8 @@ class BottomNavController extends GetxController {
   final List<Widget> pages = [
     HomeView(),
     CategoryView(),
-    Center(child: AppText('Bag Page')),
-    Center(child: AppText('Favorites Page')),
-    Center(child: AppText('Profile Page')),
+    Center(child: AppText('Curate Page')),
+    Center(child: AppText('Sale Page')),
+    Center(child: AppText('More Page')),
   ];
 }

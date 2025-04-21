@@ -21,6 +21,7 @@ class AppText extends StatelessWidget {
   final TextWeight? textWeight;
   final Color? textColor;
   final bool? multiLine;
+  final int? maxLine;
   final TextAlign? textAlign;
   final TextDecoration? textDecoration;
 
@@ -33,6 +34,7 @@ class AppText extends StatelessWidget {
     this.multiLine = false,
     this.textAlign = TextAlign.left,
     this.textDecoration,
+    this.maxLine,
   });
 
   const AppText.multiLine(
@@ -43,13 +45,14 @@ class AppText extends StatelessWidget {
     this.textColor = AppColors.primaryTextColor,
     this.textAlign = TextAlign.left,
     this.textDecoration,
+    this.maxLine,
   }) : multiLine = true;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      maxLines: multiLine! ? null : 1,
+      maxLines: multiLine! ? maxLine ?? null : 1,
       textAlign: textAlign,
       overflow: multiLine! ? TextOverflow.visible : TextOverflow.ellipsis,
       style: textStyle!.copyWith(

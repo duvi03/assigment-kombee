@@ -32,14 +32,19 @@ class BottomNavView extends GetView<BottomNavController> {
                     children: [
                       Icon(
                         controller.navItems[index]['icon'],
-                        color: isSelected ? AppColors.green : AppColors.grey,
+                        color:
+                            isSelected
+                                ? AppColors.primaryColor
+                                : AppColors.grey,
                         size: 24.h,
                       ),
                       SizedBox(height: 4),
                       AppText(
                         controller.navItems[index]['label'],
                         textColor:
-                            isSelected ? AppColors.green : AppColors.grey,
+                            isSelected
+                                ? AppColors.primaryColor
+                                : AppColors.grey,
                         textWeight:
                             isSelected ? TextWeight.w800 : TextWeight.w400,
                         textSize: TextSize.small_12,

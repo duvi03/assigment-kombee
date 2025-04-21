@@ -1,12 +1,17 @@
 import 'dart:convert';
 
 class CategoryModel {
-  List<Category>? categories;
-  String? bannerImage;
-  String? status;
-  String? message;
+  final List<Category> categories;
+  final String bannerImage;
+  final String status;
+  final String message;
 
-  CategoryModel({this.categories, this.bannerImage, this.status, this.message});
+  CategoryModel({
+    required this.categories,
+    required this.bannerImage,
+    required this.status,
+    required this.message,
+  });
 
   CategoryModel copyWith({
     List<Category>? categories,
@@ -26,35 +31,39 @@ class CategoryModel {
   String toRawJson() => json.encode(toJson());
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
-    categories:
-        json["categories"] == null
-            ? []
-            : List<Category>.from(
-              json["categories"]!.map((x) => Category.fromJson(x)),
-            ),
+    categories: List<Category>.from(
+      json["categories"].map((x) => Category.fromJson(x)),
+    ),
     bannerImage: json["banner_image"],
     status: json["status"],
     message: json["message"],
   );
 
   Map<String, dynamic> toJson() => {
-    "categories":
-        categories == null
-            ? []
-            : List<dynamic>.from(categories!.map((x) => x.toJson())),
+    "categories": List<dynamic>.from(categories.map((x) => x.toJson())),
     "banner_image": bannerImage,
     "status": status,
     "message": message,
   };
+
+  @override
+  String toString() {
+    return 'CategoryModel{categories: $categories, bannerImage: $bannerImage, status: $status, message: $message}';
+  }
 }
 
 class Category {
-  String? categoryId;
-  String? categoryName;
-  String? parentId;
-  List<Category>? child;
+  final String categoryId;
+  final String categoryName;
+  final String parentId;
+  final List<Category>? child;
 
-  Category({this.categoryId, this.categoryName, this.parentId, this.child});
+  Category({
+    required this.categoryId,
+    required this.categoryName,
+    required this.parentId,
+    this.child,
+  });
 
   Category copyWith({
     String? categoryId,
@@ -92,4 +101,9 @@ class Category {
     "child":
         child == null ? [] : List<dynamic>.from(child!.map((x) => x.toJson())),
   };
+
+  @override
+  String toString() {
+    return 'Category{categoryId: $categoryId, categoryName: $categoryName, parentId: $parentId, child: $child}';
+  }
 }

@@ -14,10 +14,18 @@ class AppColors {
   static const Color grey = Color(0xFF9E9E9E);
 
   /// Theme Colors
-  static const Color primaryColor = Color(0xFF31B5ED);
+  static const Color primaryColor = Color(0xFFABB465);
   static const Color disableColor = Color(0xFFB5C1C9);
   static const Color hoverColor = Color(0x80C5C2C2);
   static const Color splashColor = Color(0x66C8C8C8);
 
   static const Color primaryTextColor = Color(0xFF000000);
+  static const Color lightOverLay = Color(0xF0F2F2F2);
+
+  static const List colorList = [
+    Color(0xFFfee3c6),
+    Color(0xFFefe3f7),
+    Color(0xFFe7d3ce),
+    Color(0xFFdfaeb5),
+  ];
 }
